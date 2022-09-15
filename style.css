@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: black;
+}
+.container {
+    position : absolute;
+    left : 50%;
+    top : 50%;
+    transform: translate(-50%, -50%);
+    perspective: 1000px;
+    /* 원근감있게 보여주는 css태그 
+       기본적으로 최상위 태그에 지정해주면 된다.
+       .flip-btn 을 3d로 보고 싶은 것이니 그 위 상위태그에 
+       원근감을 주자
+    */
+}
+
+.flip-btn{
+    width: 200px;
+    height: 100px;
+    color : white;
+    text-align: center;
+    line-height: 100px;
+    /* 
+    요소의 height 값과 line-height 값이 같으면
+    수직 중앙 정렬이 된다.
+    단, 한 줄 일때만 가능하다
+     */
+
+     transform-style: preserve-3d;
+     /* 
+     flip-btn 하위에 있는 태그들은 3d 공간에 배치된다.
+     */
+     transition: .5s;
+      /* 트랜지션 효과: 모든 프로퍼티의 변화를 0.5초에 걸쳐 전환한다. */
+    cursor: pointer;
+    }
+
+.flip-btn:hover{
+    transform: rotateX(-90deg);
+}
+
+.front {
+    background-color: goldenrod;
+    height: 100px;
+    transform: translateZ(50px);
+}
+
+.back {
+    background-color: darkgoldenrod;
+    height: 100px;
+    transform: rotateX(90deg) translateZ(150px) ;
+}
